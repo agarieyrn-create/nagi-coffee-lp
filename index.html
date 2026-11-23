@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nagi Coffee｜北谷町の海が見えるカフェ・テイクアウト</title>
+<meta name="description" content="沖縄県北谷町、海が見えるカフェ「Nagi Coffee」。一杯ずつハンドドリップで淹れるコーヒーと、手作りのパンケーキ。テラス席とテイクアウトもあります。※架空のカフェによるデザイン制作例です。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Nagi Coffee（架空）","address":{"@type":"PostalAddress","addressRegion":"沖縄県","addressLocality":"中頭郡北谷町","streetAddress":"○○1-2-3"},"telephone":"098-000-0000","openingHours":"Tu-Su 09:00-18:00","servesCuisine":"Coffee, Pancakes"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2b2a28;--paper:#f8f5ef;--sand:#ece5d8;--accent:#2c6e6f;--mute:#7a7367;--line:#d9d0c1;--gutter:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--paper);line-height:1.95;font-size:16px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--gutter)}
+header{position:relative;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:76px}
+.brand{font-family:"Noto Serif JP",serif;font-weight:700;font-size:20px;letter-spacing:.06em;text-decoration:none}
+header nav{display:flex;gap:28px;align-items:center}
+header nav a{text-decoration:none;font-size:13px;color:#4d483f}
+header nav a.btn-s{background:var(--accent);color:#fff;padding:9px 20px;font-weight:700}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.04em;padding:16px 32px;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:#215556;border-color:#215556}
+.btn.ghost{color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.hero{position:relative;min-height:calc(100svh - 77px);display:flex;align-items:center;background:var(--sand);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:10% center}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .copy{max-width:400px}
+.hero .btn{padding:14px 22px;font-size:14px}
+.hero .sub{font-size:13px;letter-spacing:.16em;color:#5d574d;margin-bottom:22px}
+.hero h1{font-family:"Noto Serif JP",serif;font-size:clamp(28px,3.2vw,42px);line-height:1.5}
+.hero .lead{margin-top:24px;max-width:24em}
+section{padding:120px 0}
+.label{font-size:12px;letter-spacing:.2em;color:var(--mute);margin-bottom:18px}
+h2{font-family:"Noto Serif JP",serif;font-size:clamp(26px,3.6vw,40px);line-height:1.55}
+.lead{margin-top:24px;max-width:34em}
+.about .grid{display:grid;grid-template-columns:6fr 5fr;gap:72px;align-items:center}
+.about img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.menu{background:var(--sand)}
+.menu .pair{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px}
+.menu .item img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.menu .item h3{font-family:"Noto Serif JP",serif;font-size:21px;margin-top:22px}
+.menu .item p{margin-top:6px;font-size:15px;color:#4d483f}
+.price{margin-top:64px;border-top:1px solid var(--ink)}
+.price .row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.price .row em{font-style:normal;font-weight:700}
+.price .row span{display:block;font-size:13px;color:var(--mute)}
+.note{margin-top:14px;font-size:13px;color:var(--mute)}
+.terrace{padding:0;position:relative}
+.terrace img{width:100%;height:min(70vh,620px);object-fit:cover}
+.terrace .cap{position:absolute;left:0;right:0;bottom:44px}
+.terrace p{display:inline-block;background:var(--paper);padding:14px 22px;font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(17px,2.4vw,26px)}
+.take .grid{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:center}
+.take img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.owner{background:var(--sand)}
+.owner .grid{display:grid;grid-template-columns:4fr 6fr;gap:80px;align-items:center}
+.owner img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.owner .name{margin-top:24px;font-weight:700}
+.owner .name span{display:block;font-weight:400;font-size:13px;color:var(--mute)}
+.info{background:var(--ink);color:var(--paper)}
+.info .label{color:#b9b2a5}
+.info dl{margin-top:32px;border-top:1px solid #565046}
+.info .row{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #565046;font-size:15px}
+.info dt{color:#b9b2a5}
+.info a{text-decoration:underline;text-underline-offset:3px}
+.info .btn.ghost{color:var(--paper);border-color:var(--paper)}
+.info .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+.faq{margin-top:48px;max-width:760px;border-top:1px solid var(--ink)}
+.faq div{padding:20px 0;border-bottom:1px solid var(--line)}
+.faq b{display:block}
+.faq span{font-size:15px;color:#4d483f}
+footer{padding:36px 0 40px;font-size:12px;color:var(--mute)}
+.bar{display:none}
+@media(max-width:820px){
+  :root{--gutter:20px}
+  section{padding:80px 0}
+  header nav a:not(.btn-s){display:none}
+  .hero{flex-direction:column;align-items:stretch;min-height:0;padding-top:48px}
+  .hero .wrap{order:1}
+  .hero .copy{max-width:none}
+  .hero img{order:2;position:static;aspect-ratio:4/5;height:auto;margin-top:48px;object-position:72% center}
+  .about .grid,.take .grid,.owner .grid{grid-template-columns:1fr;gap:40px}
+  .owner img{order:-1;aspect-ratio:4/5}
+  .menu .pair{grid-template-columns:1fr;gap:40px}
+  .actions .btn{flex:1 1 100%;text-align:center}
+  body{padding-bottom:68px}
+  .bar{display:grid;grid-template-columns:1.2fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--paper);border-top:1px solid var(--line)}
+  .bar a{text-align:center;text-decoration:none;font-size:13px;font-weight:700;padding:14px 4px}
+  .bar a.main{background:var(--accent);color:#fff}
+  .bar a+a{border-left:1px solid var(--line)}
+  .terrace .cap{bottom:24px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Nagi Coffee</a>
+    <nav>
+      <a href="#menu">メニュー</a>
+      <a href="#terrace">テラス席</a>
+      <a href="#info">アクセス</a>
+      <a class="btn-s" href="#" data-link="instagram">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <img src="images/hero.png" alt="海が見える窓際の席に置かれたカフェラテと焼き菓子">
+    <div class="wrap">
+      <div class="copy">
+        <p class="sub">北谷町｜海が見えるカフェ</p>
+        <h1>海を見ながら、<br>一杯ずつ丁寧に。</h1>
+        <p class="lead">ハンドドリップのコーヒーと、焼きたてのパンケーキ。窓の向こうの水平線ごと、ゆっくり味わってください。</p>
+        <div class="actions">
+          <a class="btn primary" href="#" data-link="map">地図で場所を見る</a>
+          <a class="btn ghost" href="#" data-link="instagram">Instagramを見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about">
+    <div class="wrap grid">
+      <div>
+        <p class="label">01　お店のこと</p>
+        <h2>静かな時間が流れる、<br>小さなカフェです。</h2>
+        <p class="lead">席数は店内とテラスを合わせて、わずか24席。お一人でも、友人とでも、波の音が聞こえる距離でゆっくり過ごせます。仕事の合間にも、旅の途中にも、どうぞ。</p>
+      </div>
+      <img src="images/interior.png" alt="木とアイアンの落ち着いた店内" loading="lazy">
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <p class="label">02　メニュー</p>
+      <h2>一杯、一皿ずつ、<br>手をかけて。</h2>
+      <div class="pair">
+        <div class="item">
+          <img src="images/coffee.png" alt="ハンドドリップでコーヒーを淹れる手元" loading="lazy">
+          <h3>ハンドドリップコーヒー</h3>
+          <p>注文を受けてから、一杯ずつ豆を挽いて淹れます。香りが立つ温度で、お出しします。</p>
+        </div>
+        <div class="item">
+          <img src="images/food.png" alt="フルーツパンケーキとアイスコーヒー" loading="lazy">
+          <h3>厚焼きのパンケーキ</h3>
+          <p>ふんわり厚く焼いて、バターとフルーツを添えました。人気の一皿です。</p>
+        </div>
+      </div>
+      <div class="price">
+        <div class="row"><div>ハンドドリップコーヒー<span>ホット / アイス</span></div><em>¥600</em></div>
+        <div class="row"><div>カフェラテ<span>ホット / アイス</span></div><em>¥650</em></div>
+        <div class="row"><div>フルーツパンケーキ<span>ドリンクセット +¥400</span></div><em>¥1,380</em></div>
+        <div class="row"><div>本日の焼き菓子<span>日替わり</span></div><em>¥480</em></div>
+      </div>
+      <p class="note">※料金は税込です。すべて架空の内容です。</p>
+    </div>
+  </section>
+
+  <section class="terrace" id="terrace">
+    <img src="images/terrace.png" alt="海を望む木のテラス席" loading="lazy">
+    <div class="wrap cap"><p>テラス席から、海を眺めて。</p></div>
+  </section>
+
+  <section class="take">
+    <div class="wrap grid">
+      <img src="images/takeout.png" alt="テイクアウトのカップと紙袋" loading="lazy">
+      <div>
+        <p class="label">03　テイクアウト</p>
+        <h2>ビーチへ、ドライブへ。<br>持ち出せる一杯。</h2>
+        <p class="lead">ドリンクと焼き菓子は、すべてテイクアウトできます。待ち時間は5分ほど。お電話でご注文いただければ、お店に着く頃には用意できています。</p>
+        <div class="actions">
+          <a class="btn primary" href="tel:0980000000">電話で注文する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="owner">
+    <div class="wrap grid">
+      <img src="images/owner.png" alt="オーナーの玉城あおい" loading="lazy">
+      <div>
+        <p class="label">04　オーナー</p>
+        <h2>「また来たい」と<br>言ってもらえる一杯を。</h2>
+        <p class="lead">北谷の海の近くで育ちました。ここで過ごす時間が、誰かの一日のよい思い出になればと、このカフェを始めました。初めての方も、お気軽にお越しください。</p>
+        <p class="name">玉城 あおい<span>オーナー・バリスタ（架空の人物）</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" id="info">
+    <div class="wrap">
+      <p class="label">05　アクセス・営業時間</p>
+      <h2>北谷の海のそばで、<br>お待ちしています。</h2>
+      <dl>
+        <div class="row"><dt>住所</dt><dd>〒904-0000<br>沖縄県中頭郡北谷町○○1-2-3（架空）</dd></div>
+        <div class="row"><dt>電話</dt><dd><a href="tel:0980000000">098-000-0000</a>（架空）</dd></div>
+        <div class="row"><dt>営業時間</dt><dd>9:00〜18:00（ラストオーダー 17:30）</dd></div>
+        <div class="row"><dt>定休日</dt><dd>毎週月曜日</dd></div>
+        <div class="row"><dt>席数</dt><dd>24席（テラス席 8席）</dd></div>
+        <div class="row"><dt>駐車場</dt><dd>8台（無料）</dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn primary" href="#" data-link="map">地図で場所を見る</a>
+        <a class="btn ghost" href="#" data-link="instagram">Instagramを見る</a>
+      </div>
+
+      <div class="faq">
+        <div><b>予約はできますか？</b><span>席のご予約は承っておりません。ご来店の順にご案内します。</span></div>
+        <div><b>ペットと一緒に入れますか？</b><span>テラス席のみ、同伴いただけます。</span></div>
+        <div><b>Wi-Fiや電源はありますか？</b><span>Wi-Fiをご利用いただけます。電源は一部の席のみです。</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">このページは、架空のカフェ「Nagi Coffee」によるデザイン制作例です。住所・電話番号・料金・人物を含む掲載情報はすべて架空で、実在の店舗・人物とは関係ありません。掲載画像は画像生成によるイメージです。</div>
+</footer>
+
+<nav class="bar" aria-label="お店への連絡">
+  <a class="main" href="#" data-link="map">地図</a>
+  <a href="#" data-link="instagram">Instagram</a>
+  <a href="tel:0980000000">電話</a>
+</nav>
+</body>
+</html>
