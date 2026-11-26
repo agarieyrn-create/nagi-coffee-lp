@@ -117,6 +117,7 @@ footer{padding:36px 0 40px;font-size:12px;color:var(--mute)}
 </style>
 <link rel="stylesheet" href="motion.css">
 <link rel="preload" as="image" href="images/hero.webp">
+<link rel="stylesheet" href="extra.css">
 </head>
 <body>
 <header>
@@ -155,6 +156,17 @@ footer{padding:36px 0 40px;font-size:12px;color:var(--mute)}
         <p class="lead">席数は店内とテラスを合わせて、わずか24席。お一人でも、友人とでも、波の音が聞こえる距離でゆっくり過ごせます。仕事の合間にも、旅の途中にも、どうぞ。</p>
       </div>
       <img width="1536" height="1024" src="images/interior.webp" alt="木とアイアンの落ち着いた店内" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <section class="x-sec x-demo x-nagi" data-demo="3500,3500,5000" data-bg="#f3e9d8" style="background-color:#f3e9d8">
+    <div class="wrap">
+      <p class="label">一杯ができるまで</p>
+      <h2>注文を受けてから、<br>一杯ずつ。</h2>
+      <div class="x-grid">
+        <div class="x-stage"><svg viewBox="0 0 260 320" aria-hidden="true"><g class="beans"><ellipse cx="108" cy="30" rx="8" ry="11"/><ellipse cx="132" cy="22" rx="8" ry="11"/><ellipse cx="153" cy="34" rx="8" ry="11"/></g><g class="pour"><path d="M232 22h-52c-26 0-40 18-48 50" /></g><path class="coffee-top" d="M96 104q34-16 68 0z"/><path class="ln" d="M70 90h120l-34 70h-52zM60 166h140"/><g class="drip"><circle cx="130" cy="182" r="4"/><circle cx="130" cy="182" r="4"/></g><g class="steam"><path d="M108 208q-10-12 0-24"/><path d="M152 208q10-12 0-24"/></g><clipPath id="cupclip"><path d="M80 214h100v50a34 34 0 0 1-34 34h-32a34 34 0 0 1-34-34z"/></clipPath><g clip-path="url(#cupclip)"><rect class="fill" x="80" y="214" width="100" height="84"/></g><path class="ln" d="M80 214h100v50a34 34 0 0 1-34 34h-32a34 34 0 0 1-34-34zM180 226h12a20 20 0 0 1 0 40h-13M52 308h156"/></svg><div class="x-sea" aria-hidden="true"><svg viewBox="0 0 800 40" preserveAspectRatio="none"><path d="M0 20q50-18 100 0t100 0 100 0 100 0 100 0 100 0 100 0 100 0"/></svg></div></div>
+        <div><div class="x-tabs" role="group" aria-label="表示を選ぶ"><button type="button" data-go="0" aria-pressed="false">挽く</button><button type="button" data-go="1" aria-pressed="false">蒸らす</button><button type="button" data-go="2" aria-pressed="false">注ぐ</button></div><div class="x-panels"><div data-panel="0"><b>豆を挽く</b><p>注文を受けてから、一杯分の豆を挽きます。</p></div><div data-panel="1"><b>少し蒸らす</b><p>少しのお湯をのせて、香りが開くのを待ちます。</p></div><div data-panel="2"><b>ゆっくり注ぐ</b><p>香りが立つ温度で、お出しします。</p></div></div><button type="button" class="x-play" data-play>動きを止める</button></div>
+      </div>
     </div>
   </section>
 
@@ -262,5 +274,6 @@ footer{padding:36px 0 40px;font-size:12px;color:var(--mute)}
 </nav>
 <script src="links.js" defer></script>
 <script src="motion.js" defer></script>
+<script src="extra.js" defer></script>
 </body>
 </html>
