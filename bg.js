@@ -82,7 +82,7 @@
 
   function build() {
     var m = P.W <= 820;
-    beans = makeBeans(m ? 26 : 44);
+    beans = makeBeans(m ? 34 : 44);
     grains = [];
     for (var i = 0; i < (m ? 220 : 460); i++) grains.push({ a: rnd() * TAU, q: Math.sqrt(rnd()), f: rnd(), s: 1.5 + rnd() * 4, c: i % 3 });
   }
@@ -108,8 +108,8 @@
     var g = P.g, W = P.W, H = P.H, m = W <= 820;
     g.clearRect(0, 0, W, H);
     var cx = W * (m ? .5 : .52), unit = Math.min(W * (m ? 1 : .62), H);
-    var strength = m ? .32 : .38;   /* 豆と粉の濃さ（数字を小さくすると薄くなる） */
-    var quiet = m ? .24 : .32;    /* カップの濃さ */
+    var strength = .38;   /* 豆と粉の濃さ（数字を小さくすると薄くなる） */
+    var quiet = .32;    /* カップの濃さ */
 
     /* 1. 豆が舞い、中央の渦に吸い込まれて挽かれる */
     var gather = ramp(.35, 1.1, S), beanA = 1 - ramp(.95, 1.35, S);
@@ -118,7 +118,7 @@
       var span = H + 240;
       var fx = b.x * W + Math.sin(t * .5 + b.k) * 34;
       var fy = ((b.y * span - t * (14 + b.z * 30) - y * (.15 + b.z * .6)) % span + span) % span - 120;
-      var s = Math.min(150, unit * (.04 + b.z * b.z * .15));
+      var s = Math.min(150, unit * (.04 + b.z * b.z * .15) * (m ? 1.35 : 1));
       var q = ramp(i / beans.length * .5, i / beans.length * .5 + .5, gather);
       var ang = b.k + t * 1.8 + q * 6, rad = (1 - q) * unit * .4 + unit * .03;
       var x = mix(fx, cx + Math.cos(ang) * rad, q), by = mix(fy, millY + Math.sin(ang) * rad * .45, q);
@@ -176,7 +176,7 @@
     if ('IntersectionObserver' in w) new IntersectionObserver(function (e) { heroOn = e[e.length - 1].isIntersecting; }).observe(hero);
   }
   function drawHero(t, y) {
-    if (HC.size()) heroBeans = makeBeans(HC.W <= 820 ? 16 : 24);
+    if (HC.size()) heroBeans = makeBeans(HC.W <= 820 ? 20 : 24);
     var g = HC.g, W = HC.W, H = HC.H, m = W <= 820, burst = ramp(0, H * .8, y);
     g.clearRect(0, 0, W, H);
     heroBeans.forEach(function (b) {
@@ -186,7 +186,7 @@
       /* 文字の上は薄くして読みやすく */
       var overText = m ? py < H * .55 : px < W * .46;
       var s = (m ? 20 : 26) + b.z * b.z * (m ? 50 : 90);
-      drawBean(g, px, py, s, b.r + t * b.v, .4 + .6 * Math.abs(Math.cos(t * .8 + b.k)), overText ? .1 : big ? .35 : .55, big || b.z < .2);
+      drawBean(g, px, py, s, b.r + t * b.v, .4 + .6 * Math.abs(Math.cos(t * .8 + b.k)), overText ? (m ? .18 : .1) : big ? .35 : .55, big || b.z < .2);
     });
   }
 
