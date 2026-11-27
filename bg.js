@@ -1,4 +1,4 @@
-/* 背景の動き「一杯の物語」：豆が舞う → 挽く → 滴る → カップに満ちて湯気（外部ライブラリなし）
+/* 背景の動き「一杯の物語」：豆が舞う → 挽く → 注ぐ → カップに満ちて湯気（外部ライブラリなし）
    元に戻すときは、index.html の <script src="bg.js"> の1行を削除するだけです。
    画像: images/bg-*.webp（Canvaの画像生成で作成） */
 (function () {
@@ -41,7 +41,7 @@
   }
   var beanSoft = null, puff = puffImg();
   var bean = photo('bg-bean', function (i) { beanSoft = soften(i); });
-  var cupFull = photo('bg-cup-full'), cupEmpty = photo('bg-cup-empty'), dripperImg = photo('bg-dripper');
+  var cupFull = photo('bg-cup-full'), cupEmpty = photo('bg-cup-empty');
 
   function setup(canvas) {
     var g = canvas.getContext('2d'), o = { g: g, W: 0, H: 0 };
@@ -109,7 +109,7 @@
     g.clearRect(0, 0, W, H);
     var cx = W * (m ? .5 : .52), unit = Math.min(W * (m ? 1 : .62), H);
     var strength = m ? .32 : .38;   /* 豆と粉の濃さ（数字を小さくすると薄くなる） */
-    var quiet = m ? .24 : .32;    /* ドリッパーとカップの濃さ */
+    var quiet = m ? .24 : .32;    /* カップの濃さ */
 
     /* 1. 豆が舞い、中央の渦に吸い込まれて挽かれる */
     var gather = ramp(.35, 1.1, S), beanA = 1 - ramp(.95, 1.35, S);
@@ -126,36 +126,16 @@
         beanA * (b.z > .82 ? strength * .65 : strength), b.z > .82 || b.z < .2);
     });
 
-    /* 2. 粉：渦から生まれ、ドリッパーに積もる */
-    var born = ramp(.55, 1.15, S), pile = ramp(1.1, 1.75, S), dripA = 1 - ramp(3.35, 3.8, S);
-    var dz = Math.min(340, unit * .62), dripTop = H * .13, dripW = dz * .66, dripH = dz * .3;
-    if (born > 0 && pile < 1 || born > 0 && dripA > 0) {
+    /* 2. 粉：渦から生まれ、下へ沈みながら消える */
+    var born = ramp(.55, 1.15, S), sink = ramp(1.15, 1.8, S), dripA = 1 - ramp(3.35, 3.8, S);
+    if (born > 0 && sink < 1) {
       var colors = ['#5a321a', '#82502d', '#3a1f10'];
       grains.forEach(function (p) {
-        var ang = p.a + t * (1.2 + p.f * 1.6), rad = p.q * unit * .42 * (.35 + born * .65);
-        var sx = cx + Math.cos(ang) * rad, sy = millY + Math.sin(ang) * rad * .4 + (p.f - .5) * unit * .12;
-        var hy = p.f * .55, tx = cx + Math.cos(p.a) * p.q * dripW * .5 * (1 - hy);
-        var ty = dripTop + dz * .24 + Math.sin(p.a) * p.q * dz * .07;
-        var q = ramp(p.f * .45, p.f * .45 + .55, pile);
-        g.globalAlpha = born * strength * mix(1, 0, q);
+        var ang = p.a + t * (1.2 + p.f * 1.6), rad = p.q * unit * .42 * (.35 + born * .65) * (1 - sink * .8);
+        g.globalAlpha = born * strength * (1 - sink);
         g.fillStyle = colors[p.c];
-        g.beginPath(); g.arc(mix(sx, tx, q), mix(sy, ty, q), p.s * (m ? .8 : 1), 0, TAU); g.fill();
+        g.beginPath(); g.arc(cx + Math.cos(ang) * rad, millY + sink * H * .2 + Math.sin(ang) * rad * .4 + (p.f - .5) * unit * .12, p.s * (m ? .8 : 1), 0, TAU); g.fill();
       });
-    }
-
-    /* ドリッパー */
-    var dripper = ramp(1.0, 1.6, S) * dripA;
-    if (dripper > .01 && ready(dripperImg)) {
-      /* 上から細く注ぐお湯 */
-      g.globalAlpha = dripper * quiet; g.strokeStyle = '#7eb2b8'; g.lineWidth = m ? 3 : 5; g.lineCap = 'round'; g.beginPath();
-      var end = dripTop + dz * .26;
-      for (var py = -10; py <= end; py += 12) {
-        var px = cx + Math.sin(py * .03 - t * 7) * 3 + Math.sin(t * 1.4) * dripW * .14 * clamp(py / end);
-        py < 0 ? g.moveTo(px, py) : g.lineTo(px, py);
-      }
-      g.stroke();
-      g.globalAlpha = dripper * quiet * 1.25;
-      g.drawImage(dripperImg, cx - dz * .46, dripTop, dz, dz);
     }
 
     /* 3. カップ：滴が落ち、スクロールに合わせて満ちる */
@@ -165,12 +145,12 @@
     if (cup > .01 && ready(cupEmpty) && ready(cupFull)) {
       var ct = top + (1 - cup) * H * .25, cl = cx - cz * .49;
       var surf = ct + cz * mix(.76, .22, level);
-      /* 滴 */
-      var flow = ramp(1.65, 2.05, S) * dripA, from = dripTop + dz * .93, to = ct + cz * mix(.7, .3, level);
-      for (var k = 0; k < 5; k++) {
-        var p = (t * 1.1 + k / 5) % 1, dy = from + p * p * Math.max(0, to - from);
-        g.globalAlpha = flow * .45; g.fillStyle = '#4a240e';
-        g.beginPath(); g.ellipse(cx, dy, m ? 3 : 4, (m ? 5 : 7) + p * 6, 0, 0, TAU); g.fill();
+      /* 上から細く注がれるコーヒー */
+      var flow = ramp(1.65, 2.05, S) * dripA, to = ct + cz * mix(.74, .26, level);
+      if (flow > .01) {
+        g.globalAlpha = flow * quiet * 1.3; g.strokeStyle = '#6b3a1c'; g.lineWidth = m ? 4 : 6; g.lineCap = 'round'; g.beginPath(); g.moveTo(cx, -10);
+        for (var py = 2; py < to; py += 12) g.lineTo(cx + Math.sin(py * .03 - t * 9) * 2.5, py);
+        g.lineTo(cx, to); g.stroke();
       }
       /* 空のカップに、コーヒー入りの写真を下から重ねて「満ちる」ように見せる */
       g.globalAlpha = cup * quiet * 1.3; g.drawImage(cupEmpty, cl, ct, cz, cz);
